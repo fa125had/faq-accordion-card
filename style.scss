@@ -1,0 +1,269 @@
+//colors
+$color_primary_text_veryDarkDesaturatedBlue: hsl(238, 29%, 16%);
+$color_primary_text_softRed: hsl(14, 88%, 65%);
+$color_neutral_text_veryDarkGrayishBlue: hsl(237, 12%, 33%);
+$color_neutral_text_darkGrayishBlue: hsl(240, 6%, 50%);
+$color_divider_lightGrayishBlue: hsl(240, 5%, 91%);
+$color_background_softViolet: hsl(273, 75%, 66%);
+$color_background_softBlue: hsl(240, 73%, 65%);
+
+@mixin backgroundGradient {
+    background-image: linear-gradient($color_background_softViolet, $color_background_softBlue);
+}
+
+//font
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+@mixin mainFontBold {
+    font-family: 'Kumbh Sans';
+    font-weight: 700;
+}
+
+@mixin mainFontRegular {
+    font-family: 'Kumbh Sans';
+    font-weight: 400;
+}
+
+//Layout
+$mobile: 375px;
+$desktop: 1440px;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include backgroundGradient();
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.faqComponent {
+    width: 86.5%;
+    max-width: 83rem;
+    height: 47rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    background: url(./images/illustration-woman-online-desktop.svg) bottom 9.1rem left -5.1rem no-repeat,
+        url(images/bg-pattern-desktop.svg) bottom -10rem left -45rem no-repeat;
+    background-color: white;
+
+    &::before {
+        content: "";
+        background: url(images/illustration-box-desktop.svg) -1rem/19rem no-repeat;
+        width: 21.67rem;
+        height: 19.84rem;
+        position: absolute;
+        top: 38%;
+        left: -10%;
+    }
+
+    .faqContent {
+        width: 50%;
+        padding-block-start: 6.5rem;
+        padding-inline-end: 8rem;
+
+        .title {
+            @include mainFontBold();
+            color: $color_primary_text_veryDarkDesaturatedBlue;
+            font-size: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .questionsAndAnswers {
+            @include mainFontRegular();
+
+            .faq {
+                .question_wraper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-bottom: 1rem;
+                    padding-right: 1rem;
+                    .question {
+                        font-size: 1.3rem;
+                        color: $color_neutral_text_darkGrayishBlue;
+                    }
+                    .activeQuestion {
+                        @include mainFontBold();
+                        font-size: 1.4rem;
+                        color: $color_primary_text_veryDarkDesaturatedBlue;
+                    }
+                    &:hover {
+                        color: $color_primary_text_softRed;
+                        cursor: pointer;
+                    }
+
+                    &:hover>.question {
+                        color: $color_primary_text_softRed;
+                        cursor: pointer;
+                    }
+
+                    &:active>.question {
+                        color: $color_primary_text_veryDarkDesaturatedBlue;
+                        @include mainFontBold();
+                        cursor: pointer;
+                    }
+
+
+                }
+
+                .answer_wraper {
+                    border-bottom: 0.2rem solid $color_divider_lightGrayishBlue;
+                    padding-bottom: 1rem;
+                    margin-bottom: 1rem;
+                    transition: all 1s;
+                    .answer {
+                        font-size: 1.2rem;
+                        color: $color_neutral_text_darkGrayishBlue;
+                        display: none;
+                    }
+                    .showContent {
+                        display: block;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $color_divider_lightGrayishBlue;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    h2,
+    h3 {
+        font-size: 1.1rem;
+        @include mainFontBold();
+        color: $color_neutral_text_veryDarkGrayishBlue;
+    }
+}
+@media only screen and (max-width: 960px) {
+    .faqComponent {
+        width: $mobile;
+        background: none;
+        background-color: white;
+        &::before {
+            content: "";
+            background: url(images/illustration-woman-online-mobile.svg) no-repeat;
+            width: $mobile;
+            height: 180px;
+            position: absolute;
+            top: -19%;
+            left: 0;
+            background-position-x: center;
+            z-index: 2;
+        }
+        &::after {
+            content: "";
+            background: url(./images/bg-pattern-mobile.svg) no-repeat;
+            width: $mobile;
+            height: 180px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-position-x: center;
+            z-index: 1;
+        }
+        .faqContent {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-block-start: 5rem;
+            padding-inline-end: 0px;
+            .title {
+                @include mainFontBold();
+                color: $color_primary_text_veryDarkDesaturatedBlue;
+                font-size: 3rem;
+            }
+    
+            .questionsAndAnswers {
+                @include mainFontRegular();
+                width: 90%;
+                .faq {
+                    .question_wraper {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-bottom: 1rem;
+                        padding-right: 1rem;
+                        .question {
+                            font-size: 1.3rem;
+                            color: $color_neutral_text_darkGrayishBlue;
+                        }
+                        .activeQuestion {
+                            @include mainFontBold();
+                            color: $color_primary_text_veryDarkDesaturatedBlue;
+                        }
+                        &:hover {
+                            color: $color_primary_text_softRed;
+                            cursor: pointer;
+                        }
+    
+                        &:hover>.question {
+                            color: $color_primary_text_softRed;
+                            cursor: pointer;
+                        }
+    
+                        &:active>.question {
+                            color: $color_primary_text_veryDarkDesaturatedBlue;
+                            @include mainFontBold();
+                            cursor: pointer;
+                        }
+                        .activeButton {
+                            transform: rotate(180deg);
+                        }
+    
+    
+                    }
+    
+                    .answer_wraper {
+                        border-bottom: 0.2rem solid $color_divider_lightGrayishBlue;
+                        padding-bottom: 1rem;
+                        margin-bottom: 1rem;
+                        transition: all 1s;
+                        text-align: left;
+                        line-height: 1.5;
+                        .answer {
+                            font-size: 1.2rem;
+                            color: $color_neutral_text_darkGrayishBlue;
+                            display: none;
+                        }
+                        .showContent {
+                            display: block;
+                            margin-right: 2rem;
+
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

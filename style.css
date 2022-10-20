@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(hsl(273deg, 75%, 66%), hsl(240deg, 73%, 65%));
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.faqComponent {
+  width: 86.5%;
+  max-width: 83rem;
+  height: 47rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  background: url(./images/illustration-woman-online-desktop.svg) bottom 9.1rem left -5.1rem no-repeat, url(images/bg-pattern-desktop.svg) bottom -10rem left -45rem no-repeat;
+  background-color: white;
+}
+.faqComponent::before {
+  content: "";
+  background: url(images/illustration-box-desktop.svg) -1rem/19rem no-repeat;
+  width: 21.67rem;
+  height: 19.84rem;
+  position: absolute;
+  top: 38%;
+  left: -10%;
+}
+.faqComponent .faqContent {
+  width: 50%;
+  padding-block-start: 6.5rem;
+  padding-inline-end: 8rem;
+}
+.faqComponent .faqContent .title {
+  font-family: "Kumbh Sans";
+  font-weight: 700;
+  color: hsl(238deg, 29%, 16%);
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+.faqComponent .faqContent .questionsAndAnswers {
+  font-family: "Kumbh Sans";
+  font-weight: 400;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper .question {
+  font-size: 1.3rem;
+  color: hsl(240deg, 6%, 50%);
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper .activeQuestion {
+  font-family: "Kumbh Sans";
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: hsl(238deg, 29%, 16%);
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:hover {
+  color: hsl(14deg, 88%, 65%);
+  cursor: pointer;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:hover > .question {
+  color: hsl(14deg, 88%, 65%);
+  cursor: pointer;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:active > .question {
+  color: hsl(238deg, 29%, 16%);
+  font-family: "Kumbh Sans";
+  font-weight: 700;
+  cursor: pointer;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper {
+  border-bottom: 0.2rem solid hsl(240deg, 5%, 91%);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  transition: all 1s;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper .answer {
+  font-size: 1.2rem;
+  color: hsl(240deg, 6%, 50%);
+  display: none;
+}
+.faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper .showContent {
+  display: block;
+}
+
+footer {
+  background-color: hsl(240deg, 5%, 91%);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+footer h2,
+footer h3 {
+  font-size: 1.1rem;
+  font-family: "Kumbh Sans";
+  font-weight: 700;
+  color: hsl(237deg, 12%, 33%);
+}
+
+@media only screen and (max-width: 960px) {
+  .faqComponent {
+    width: 375px;
+    background: none;
+    background-color: white;
+  }
+  .faqComponent::before {
+    content: "";
+    background: url(images/illustration-woman-online-mobile.svg) no-repeat;
+    width: 375px;
+    height: 180px;
+    position: absolute;
+    top: -19%;
+    left: 0;
+    background-position-x: center;
+    z-index: 2;
+  }
+  .faqComponent::after {
+    content: "";
+    background: url(./images/bg-pattern-mobile.svg) no-repeat;
+    width: 375px;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position-x: center;
+    z-index: 1;
+  }
+  .faqComponent .faqContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-block-start: 5rem;
+    padding-inline-end: 0px;
+  }
+  .faqComponent .faqContent .title {
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    color: hsl(238deg, 29%, 16%);
+    font-size: 3rem;
+  }
+  .faqComponent .faqContent .questionsAndAnswers {
+    font-family: "Kumbh Sans";
+    font-weight: 400;
+    width: 90%;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper .question {
+    font-size: 1.3rem;
+    color: hsl(240deg, 6%, 50%);
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper .activeQuestion {
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    color: hsl(238deg, 29%, 16%);
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:hover {
+    color: hsl(14deg, 88%, 65%);
+    cursor: pointer;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:hover > .question {
+    color: hsl(14deg, 88%, 65%);
+    cursor: pointer;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper:active > .question {
+    color: hsl(238deg, 29%, 16%);
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .question_wraper .activeButton {
+    transform: rotate(180deg);
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper {
+    border-bottom: 0.2rem solid hsl(240deg, 5%, 91%);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    transition: all 1s;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper .answer {
+    font-size: 1.2rem;
+    color: hsl(240deg, 6%, 50%);
+    display: none;
+  }
+  .faqComponent .faqContent .questionsAndAnswers .faq .answer_wraper .showContent {
+    display: block;
+    margin-right: 2rem;
+  }
+}/*# sourceMappingURL=style.css.map */
